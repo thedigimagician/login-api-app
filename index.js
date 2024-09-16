@@ -14,8 +14,7 @@ app.listen(port, () => {
 });
 
 app.post("/collect", async (req, res) => {
-  console.log(JSON.stringify(req));
-  console.log(req.protocol, req.hostname);
+  console.log(req.protocol, req.hostname, req.ip);
   console.log(req.body);
   appendOrCreateFile("data.txt", JSON.stringify(req.body));
   res.json({ response: "success" });
